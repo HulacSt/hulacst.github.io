@@ -1,0 +1,36 @@
+---
+title: Alerting Myself In Webex From R
+author: Steve Hulac
+draft: true
+---
+## Getting Webex API key
+
+## Secrets
+
+## R function
+
+## Put it in a snippet
+```{r}
+snippet notifySteve
+    notify_steve <- function(markdown) {
+      url <- "https://webexapis.com/"
+      key <- yaml::read_yaml("c:/Users/shulac/onedrive/secrets/secrets.yaml")[['bot_hulac_token']]
+      auth <- httr::add_headers(Authorization = paste("Bearer", key, sep = " "))
+      
+      # Get the Room ID
+      roomId <- url |>
+        httr::modify_url(path = c("v1", "rooms")) |>
+        httr::GET(auth) |>
+        httr::content() |>
+        purrr::pluck("items") |>
+        purrr::keep(~ purrr::pluck(., "title") == "Hulac, Steve") |>
+        pluck(1, "id")
+      
+      # Send the Message
+      url |> 
+        httr::modify_url(path = c('v1','messages')) |> 
+        httr::POST(auth, body = list(roomId = roomId,
+                               markdown = markdown),
+             encode = 'form')
+    } 
+```

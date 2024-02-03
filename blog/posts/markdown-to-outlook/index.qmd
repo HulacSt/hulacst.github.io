@@ -7,20 +7,59 @@ draft: true
 
 Sometimes I want to turn markdown into formatted text for an e-mail. At work on Windows, this is a bit more difficult than at home on my mac. 
 
-```{r}
-#| eval: false
-md_to_clipboard <- function(input) {
-  if(!file.exists(input)) {
-    message('Input is not a valid file. Interpreting as markdown character string')
-    in_path <- tempfile(fileext = '.md')
-    writeLines(input, in_path)
-  } else {
-    in_path <- input
-  }
+# Goal
+Get contents of a .md file into my clipboard as rich text that I can paste straight into outlook.
 
-  glue::glue('powershell "pandoc {in_path} -t html --ascii | Set-Clipboard -AsHtml"') |> 
+## Example .md
+
+```{md}
+# Header
+
+Body 1
+
+## Subheader
+
+Here's another body thing.
+
+### Third Header
+
+| Column 1 | Column 2 |
+| -------- | -------- |
+| dta 1    | dta 2    |
+
+Some body text
+
+>Quoted text
+
+In the middle of a sentence I'll insert `some code like this`.
+
+\`\`\`sql
+SELECT
+some_column
+,another_column
+FROM A.SQL.Table
+\`\`\`
+
+```
+
+```{r}
+
+readr::write_file(md, 'example.md')
+
+
+# Markdown text to clipboard as HTML to paste into Outlook, etc
+md_to_clipboard <- function(input_md) {
+  in_path <- tempfile(fileext = '.md')
+  readr::write_lines(input, in_path)
+
+  tf2 <- tempfile(fileext = '.html')
+  glue::glue('powershell "pandoc {in_path} -t html --ascii | Set-Clipboard -AsHtml"') |>
     system() -> status
   unlink(in_path)
   invisible(status)
-};  
+};
+md_to_clipboard(md) 
 ```
+
+`-t` 
+`-ascii`

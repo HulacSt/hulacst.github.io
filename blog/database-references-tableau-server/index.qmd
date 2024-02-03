@@ -1,0 +1,32 @@
+---
+title: "Database References from Tableau Server"
+author: "Steve Hulac"
+draft: true
+---
+
+## Accessing the tableau API
+## Can only really get what you need from the graphql API
+```json
+query dataSourceInfo {
+  embeddedDatasources {
+    name
+    upstreamTables {
+      name
+      fullName
+      schema
+      database {
+        name
+      }
+
+    }
+    downstreamWorkbooks {
+      name
+      owner {
+        name
+      }
+      projectName
+    }
+  }
+}   
+```
+## Need rest api for other workbook info
