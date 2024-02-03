@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://HulacSt.github.io/hulacst.github.io/about.html</loc>
-    <lastmod>2024-02-03T06:30:24.069Z</lastmod>
+    <lastmod>2024-02-03T06:39:27.369Z</lastmod>
   </url>
   <url>
     <loc>https://HulacSt.github.io/hulacst.github.io/index.html</loc>
-    <lastmod>2024-02-03T06:30:24.069Z</lastmod>
+    <lastmod>2024-02-03T06:39:27.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://HulacSt.github.io/hulacst.github.io/posts/first-post/index.html</loc>
+    <lastmod>2024-02-03T06:39:27.369Z</lastmod>
   </url>
 </urlset>

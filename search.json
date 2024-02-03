@@ -4,13 +4,20 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this blog"
+    "text": "I’m Steve Hulac and this is my blog."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "blog",
     "section": "",
-    "text": "No matching items"
+    "text": "My First Post\n\n\n\n\n\n\n\n\n\n\n\nFeb 2, 2024\n\n\nSteve Hulac\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/first-post/index.html",
+    "href": "posts/first-post/index.html",
+    "title": "My First Post",
+    "section": "",
+    "text": "Test first post. Happy Groundhog day."
   }
 ]
