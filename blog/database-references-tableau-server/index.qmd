@@ -7,6 +7,7 @@ draft: true
 ## Accessing the tableau API
 ## Can only really get what you need from the graphql API
 ```json
+#| eval: false
 query dataSourceInfo {
   embeddedDatasources {
     name

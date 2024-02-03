@@ -9,8 +9,8 @@ draft: true
 
 ## R function
 
-## Put it in a snippet
 ```{r}
+#| eval: false
 snippet notifySteve
     notify_steve <- function(markdown) {
       url <- "https://webexapis.com/"
@@ -34,3 +34,5 @@ snippet notifySteve
              encode = 'form')
     } 
 ```
+
+## Put it in a snippet

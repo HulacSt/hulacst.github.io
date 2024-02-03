@@ -43,7 +43,7 @@ FROM A.SQL.Table
 ```
 
 ```{r}
-
+#| eval: false
 readr::write_file(md, 'example.md')
 
 
@@ -62,4 +62,6 @@ md_to_clipboard(md)
 ```
 
 `-t` 
+
+
 `-ascii`
