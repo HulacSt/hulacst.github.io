@@ -12,7 +12,7 @@ Get contents of a .md file into my clipboard as rich text that I can paste strai
 
 ## Example .md
 
-```{md}
+```md
 # Header
 
 Body 1
@@ -42,7 +42,7 @@ FROM A.SQL.Table
 
 ```
 
-```{r}
+```r
 #| eval: false
 readr::write_file(md, 'example.md')
 

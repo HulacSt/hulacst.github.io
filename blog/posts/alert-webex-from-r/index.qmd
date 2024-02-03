@@ -9,7 +9,7 @@ draft: true
 
 ## R function
 
-```{r}
+```r
 #| eval: false
 snippet notifySteve
     notify_steve <- function(markdown) {
