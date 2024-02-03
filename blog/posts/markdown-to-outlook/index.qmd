@@ -8,7 +8,7 @@ draft: true
 Sometimes I want to turn markdown into formatted text for an e-mail. At work on Windows, this is a bit more difficult than at home on my mac. 
 
 ```{r}
-eval: false
+#| eval: false
 md_to_clipboard <- function(input) {
   if(!file.exists(input)) {
     message('Input is not a valid file. Interpreting as markdown character string')
