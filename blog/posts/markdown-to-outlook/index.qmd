@@ -1,0 +1,26 @@
+---
+title: "Markdown to Outlook in R"
+author: "Steve Hulac"
+date: "2024-02-02"
+draft: true
+---
+
+Sometimes I want to turn markdown into formatted text for an e-mail. At work on Windows, this is a bit more difficult than at home on my mac. 
+
+```{r}
+eval: false
+md_to_clipboard <- function(input) {
+  if(!file.exists(input)) {
+    message('Input is not a valid file. Interpreting as markdown character string')
+    in_path <- tempfile(fileext = '.md')
+    writeLines(input, in_path)
+  } else {
+    in_path <- input
+  }
+
+  glue::glue('powershell "pandoc {in_path} -t html --ascii | Set-Clipboard -AsHtml"') |> 
+    system() -> status
+  unlink(in_path)
+  invisible(status)
+};  
+```
