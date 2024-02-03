@@ -1,0 +1,9 @@
+---
+title: "Markdown to Outlook in R"
+author: "Steve Hulac"
+date: "2024-02-02"
+draft: true
+---
+
+Sometimes I want to turn markdown into formatted text for an e-mail. At work on Windows, this is a bit more difficult than at home on my mac. 
+
