@@ -1,0 +1,15 @@
+{
+  "hash": "36e2cc5fb9f1893031ff7d1498d282d5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Markdown to Outlook in R\"\nauthor: \"Steve Hulac\"\ndate: \"2024-02-02\"\ndraft: true\n---\n\n\nSometimes I want to turn markdown into formatted text for an e-mail. At work on Windows, this is a bit more difficult than at home on my mac. \n\n\n::: {.cell}\n\n```{.r .cell-code}\nmd_to_clipboard <- function(input) {\n  if(!file.exists(input)) {\n    message('Input is not a valid file. Interpreting as markdown character string')\n    in_path <- tempfile(fileext = '.md')\n    writeLines(input, in_path)\n  } else {\n    in_path <- input\n  }\n\n  glue::glue('powershell \"pandoc {in_path} -t html --ascii | Set-Clipboard -AsHtml\"') |> \n    system() -> status\n  unlink(in_path)\n  invisible(status)\n};  \n```\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
